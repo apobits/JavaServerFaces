@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<script type="text/javascript">
+ function hello(name){
+ alert("Hello "+name);
+ };
+</script>
+	<style>
+.red {
+	color: red;
+}
+
+.black {
+	color: black;
+}
+</style>
+</h:head>
+<body>
+	<h:form>
+		<!-- User name <h:inputText value="#{user.name}" /> -->
+		<!-- Password <input value="#{user.password}" type="password" jsfc="h:inputText"/> -->
+		<!-- <h:commandButton action="#{user.startTask()}" value="LogIn" /> -->
+
+		<h:dataTable value="#{members}" var="family">
+			<h:column>#{family}</h:column>
+		</h:dataTable>
+
+		<h:outputText value="#{((x,y) ->x+=y) ('albin','perez')}" />
+		<h:outputText
+			value="#{x = ((x,y) ->x+=y);name='Albin';y = {1,2,3,4}; x(name,'perez')}" />
+
+<!-- 		<ui:repeat var="yy" value="#{y}"> -->
+<!-- 		#{yy} -->
+<!-- 		</ui:repeat> -->
+
+		<h:dataTable value="#{y}" var="yy">
+			<h:column>#{yy}</h:column>
+		</h:dataTable>
+
+		<h:outputText value="#{x('danna','perez')}" />
+		
+		<h:outputText value="#{initParam['myName']}" />
+		
+User name <h:inputText value="#{user['name']}" />
+Password <h:inputText value='#{user["password"]}' />
+		<h:selectOneMenu value="#{user.city}">
+		</h:selectOneMenu>
+		<h:selectBooleanCheckbox value="#{user.love}" label="love"
+			valueChangeListener="#{user.showLove1}">
+			<f:ajax render="love" />
+		</h:selectBooleanCheckbox>
+		<h:inputText value="JS" onclick="hello('#{user.language}')" />
+		<h:inputText value="#{user.city}" id="city" styleClass="#{user.color}">
+			<f:ajax event="click" render="city" listener="#{user.changeColor()}" />
+		</h:inputText>
+		<h:commandButton value="LogIn" action="#{user.startTask()}" />
+		<h:panelGroup id="love">
+			<ui:fragment rendered="#{user.love}">
+				<img src="love.jpg" />
+			</ui:fragment>
+		</h:panelGroup>
+		<h:commandButton action="#{user.changeColor()}" value="love">
+			<f:ajax render="love" listener="#{user.showLove()}" />
+		</h:commandButton>
+
+
+	</h:form>
+
+</body>
+</html>
