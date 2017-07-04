@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head></h:head>
+
+<body>
+	<h:form>
+
+		<!-- If action attribute is used name parameter is visible when doSomething() method is invoked -->
+		<h:commandButton action="#{propertyActionListener.doSomething()}"
+			value="Send parameters">
+			<f:setPropertyActionListener value="danna"
+				target="#{propertyActionListener.name}" id="name" />
+		</h:commandButton>
+
+		<!-- If actionListener attribute is used name parameter is not visible when doSomething() method is invoked, because setter method is invoked after actionListener is invoked -->
+		<h:commandButton action="#{propertyActionListener.doSomething()}"
+			value="Send parameters">
+			<f:setPropertyActionListener value="danna"
+				target="#{propertyActionListener.name}" id="name" />
+		</h:commandButton>
+	</h:form>
+</body>
+</html>

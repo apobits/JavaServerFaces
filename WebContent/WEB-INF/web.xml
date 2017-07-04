@@ -26,8 +26,15 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
+
+	<!-- Context param available to be accessed from a bean and a facelet page -->
 	<context-param>
 		<param-name>myName</param-name>
 		<param-value>Albin</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>facelets.LIBRARIES</param-name>
+		<param-value>/WEB-INF/own-taglib.xml</param-value>
 	</context-param>
 </web-app>

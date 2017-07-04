@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head></h:head>
+<f:metadata>
+	<!-- the viewParam is set to the bean property -->
+	<f:viewParam name="daughterParam" value="#{viewParameter.name}" />
+	<!-- the viewParam is set to a variable with the same name of the viewParam since no value attribute was specified -->
+	<f:viewParam name="daddyParam" />
+</f:metadata>
+<body>
+	<!-- value obtained from the bean property -->
+	<h:outputText value="#{viewParameter.name}" />
+	<!-- value obtained from the viewParam name -->
+	<h:outputText value="#{daddyParam}" />
+
+	<h:form>
+		<h:commandButton
+			action="ViewParameter1?faces-redirect=true;includeViewParams=false"
+			value="Go to ViewParameter1" />
+	</h:form>
+
+	<h:link value="Go to ViewParameter1"
+		outcome="ViewParameter1?faces-redirect=true" includeViewParams="true">
+	</h:link>
+</body>
+</html>

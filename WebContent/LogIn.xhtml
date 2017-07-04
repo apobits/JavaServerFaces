@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<script type="text/javascript">
  function hello(name){
@@ -25,6 +25,7 @@
 		<!-- Password <input value="#{user.password}" type="password" jsfc="h:inputText"/> -->
 		<!-- <h:commandButton action="#{user.startTask()}" value="LogIn" /> -->
 
+		<!-- members variable obtain with Expression Language Resolvers -->
 		<h:dataTable value="#{members}" var="family">
 			<h:column>#{family}</h:column>
 		</h:dataTable>
@@ -33,16 +34,16 @@
 		<h:outputText
 			value="#{x = ((x,y) ->x+=y);name='Albin';y = {1,2,3,4}; x(name,'perez')}" />
 
-<!-- 		<ui:repeat var="yy" value="#{y}"> -->
-<!-- 		#{yy} -->
-<!-- 		</ui:repeat> -->
+		<!-- 		<ui:repeat var="yy" value="#{y}"> -->
+		<!-- 		#{yy} -->
+		<!-- 		</ui:repeat> -->
 
 		<h:dataTable value="#{y}" var="yy">
 			<h:column>#{yy}</h:column>
 		</h:dataTable>
 
 		<h:outputText value="#{x('danna','perez')}" />
-		
+
 		<h:outputText value="#{initParam['myName']}" />
 		
 User name <h:inputText value="#{user['name']}" />
@@ -66,9 +67,6 @@ Password <h:inputText value='#{user["password"]}' />
 		<h:commandButton action="#{user.changeColor()}" value="love">
 			<f:ajax render="love" listener="#{user.showLove()}" />
 		</h:commandButton>
-
-
 	</h:form>
-
 </body>
 </html>

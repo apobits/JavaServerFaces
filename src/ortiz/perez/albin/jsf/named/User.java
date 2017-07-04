@@ -3,10 +3,10 @@
  */
 package ortiz.perez.albin.jsf.named;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
+import javax.inject.Named;
 
 import ortiz.perez.albin.jsf.enums.City;
 import ortiz.perez.albin.jsf.enums.Language;
@@ -15,7 +15,7 @@ import ortiz.perez.albin.jsf.enums.Language;
  * @author Administrador
  *
  */
-@ManagedBean
+@Named
 @ApplicationScoped
 public class User {
 
@@ -184,6 +184,10 @@ public class User {
 	public void setCount(int count) {
 		this.count = count;
 		System.out.println(count);
+	}
+
+	public void send() {
+
 	}
 
 }
