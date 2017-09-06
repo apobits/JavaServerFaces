@@ -24,7 +24,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/faces/*</url-pattern>
+		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
 
 	<!-- Context param available to be accessed from a bean and a facelet page -->
@@ -37,4 +37,25 @@
 		<param-name>facelets.LIBRARIES</param-name>
 		<param-value>/WEB-INF/own-taglib.xml</param-value>
 	</context-param>
+
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	<listener>
+		<listener-class>ortiz.perez.albin.listener.HttpSessionListener</listener-class>
+	</listener>
+	<error-page>
+		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+		<location>/Test.jsf</location>
+	</error-page>
+
+	<filter>
+		<filter-name>Test</filter-name>
+		<filter-class>ortiz.perez.albin.filter.Filter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Test</filter-name>
+		<url-pattern>/pages/*</url-pattern>
+	</filter-mapping>
 </web-app>

@@ -3,13 +3,15 @@
  */
 package ortiz.perez.albin.jsf.named;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 
 import ortiz.perez.albin.jsf.enums.City;
 import ortiz.perez.albin.jsf.enums.Language;
+import java.io.Serializable;
 
 /**
  * @author Administrador
@@ -17,7 +19,12 @@ import ortiz.perez.albin.jsf.enums.Language;
  */
 @Named
 @ApplicationScoped
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Language language;
 

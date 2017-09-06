@@ -13,12 +13,12 @@
 		</locale-config>
 		<el-resolver>ortiz.perez.albin.resolver.UserELR</el-resolver>
 	</application>
-	<navigation-rule>
-		<from-view-id>/LogIn.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{user.startTask()}</from-action>
-			<from-outcome>greeting</from-outcome>
-			<to-view-id>/Welcome.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+<!-- 	<navigation-rule> -->
+<!-- 		<from-view-id>/LogIn.xhtml</from-view-id> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-action>#{user.startTask()}</from-action> -->
+<!-- 			<from-outcome>greeting</from-outcome> -->
+<!-- 			<to-view-id>/Welcome.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 	</navigation-rule> -->
 </faces-config>
